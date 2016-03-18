@@ -1,0 +1,25 @@
+{
+	"name": "jmx-memory",
+	"section": "utils",
+	"priority": "optional",
+	"architecture": "all",
+	"maintainer": "Benjamin Borbe <bborbe@rocketnews.de>",
+	"description": "JMX Memory Tool",
+	"postinst": "postinst",
+	"depends": [
+		"nexus"
+	],
+	"files": [
+		{
+			"source": "target/jmx-memory.jar",
+			"target": "/opt/jmx-memory/jmx-memory-jar-with-dependencies.jar"
+		}
+	]
+}
+
+
+
+
+
+
+
