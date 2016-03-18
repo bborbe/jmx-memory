@@ -44,15 +44,30 @@ public class Main {
       final CompositeData attribute = (CompositeData) jmxConnector.getMBeanServerConnection().getAttribute(
           new ObjectName("java.lang:type=Memory"),
           "HeapMemoryUsage");
-      System.out.println("HeapMemoryUsage.commited    = " + attribute.get("committed"));
-      System.out.println("HeapMemoryUsage.used        = " + attribute.get("used"));
+      System.out.println("HeapMemoryUsage.commited    = " + toMb(attribute.get("committed")));
+      System.out.println("HeapMemoryUsage.used        = " + toMb(attribute.get("used")));
+      System.out.println("HeapMemoryUsage.max         = " + toMb(attribute.get("max")));
     }
     {
       final CompositeData attribute = (CompositeData) jmxConnector.getMBeanServerConnection().getAttribute(
           new ObjectName("java.lang:type=Memory"),
           "NonHeapMemoryUsage");
-      System.out.println("NonHeapMemoryUsage.commited = " + attribute.get("committed"));
-      System.out.println("NonHeapMemoryUsage.used     = " + attribute.get("used"));
+      System.out.println("NonHeapMemoryUsage.commited = " + toMb(attribute.get("committed")));
+      System.out.println("NonHeapMemoryUsage.used     = " + toMb(attribute.get("used")));
+      System.out.println("NonHeapMemoryUsage.max      = " + toMb(attribute.get("max")));
+    }
+  }
+
+  public static String toMb(Object object) {
+    final String string = String.valueOf(object);
+    try {
+      final long value = Long.parseLong(string);
+      if (value <= 0) {
+        return string;
+      }
+      return (value / 1024 / 1024) + "MB";
+    } catch (Exception e) {
+      return string;
     }
   }
 
