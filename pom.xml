@@ -12,6 +12,7 @@
 	</properties>
 
 	<build>
+		<finalName>jmx-memory</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

@@ -15,6 +15,6 @@ public class MainTest {
   @Ignore
   @Test
   public void testExec() throws Exception {
-    System.out.println(Main.exec("192.168.99.100", 1099, "", ""));
+    Main.exec("192.168.99.100", 1099, "", "");
   }
 }
