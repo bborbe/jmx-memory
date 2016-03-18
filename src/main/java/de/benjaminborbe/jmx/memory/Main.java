@@ -58,7 +58,7 @@ public class Main {
     }
   }
 
-  public static String toMb(Object object) {
+  public static String toMb(final Object object) {
     final String string = String.valueOf(object);
     try {
       final long value = Long.parseLong(string);
@@ -66,7 +66,7 @@ public class Main {
         return string;
       }
       return (value / 1024 / 1024) + "MB";
-    } catch (Exception e) {
+    } catch (final Exception e) {
       return string;
     }
   }
