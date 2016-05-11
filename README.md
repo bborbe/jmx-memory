@@ -6,6 +6,12 @@ Show Java JMX Memory
 
 `mvn install`
 
+## Add JMX Args
+
+```
+-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+```
+
 ## Run
 
 `java -jar target/jmx-memory-jar-with-dependencies.jar localhost 1099`
